@@ -4,7 +4,7 @@
 	<h2 class="title"><%=h article.title %></h2>
 	<p class="meta">
 		<em>
-			{ Posted on  on <%= article.created_at.to_s %> 
+			{ Posted on  on <%= article.created_at.strftime("at %I:%M%p %m/%d/%Y") %> 
 				<% if login? %>
 					<%= link_to 'Edit', resource(article, :edit) %> | 
 					<%= link_to 'Delete', resource(article, :delete), :class => 'delete' %>

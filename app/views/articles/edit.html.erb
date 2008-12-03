@@ -1,15 +1,14 @@
 <%= form_for(@article, :action => resource(@article)) do %>
-  <h2>Title</h2>
+<div class="post">
+	<h2 class="title"><%= text_field :title %></h2>
+	<div class="entry">	
+		<em> body: </em>			
+		<p> <%= text_area :body %></p>
+	</div>
   <p>
-    <%= text_field :title %>
+    <%= submit "Create" %>
   </p>
-  <h2>Content</h2> 
-  <p>
-    <%= text_area :body %>
-  </p>
-  <p>
-    <%= submit "Update" %>
-  </p>
+</div>
 <% end =%>
 <%= link_to 'Show', resource(@article) %> | <%= link_to 'Back', resource(:articles) %>
 
