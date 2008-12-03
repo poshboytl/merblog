@@ -3,7 +3,7 @@
 	<h2 class="title"><%= text_field :title %></h2>
 	<div class="entry">	
 		<em> body: </em>			
-		<p> <%= text_area :body %></p>
+		<p> <%= text_area :body, :cols => 60, :rows => 20 %></p>
 	</div>
   <p>
     <%= submit "Create" %>

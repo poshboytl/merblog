@@ -362,3 +362,7 @@ hr { display: none; }
 #footer a {
 	color: #B5ADA5;
 }
+
+input:focus, textarea:focus{
+background-color: lightyellow;
+}
