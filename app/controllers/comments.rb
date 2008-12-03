@@ -2,8 +2,6 @@ class Comments < Application
   # provides :xml, :yaml, :js
 
   def create(comment)
-    # @comment = Comment.new(comment)
-    debugger
     @article = Article.get(params[:article_id].to_i)
     @article.comments.new(comment)
     if @article.save

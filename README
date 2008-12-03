@@ -6,23 +6,26 @@ Merblog is a simple blog written in Merb
 
 Install required gems, Create database, default SQLite3
 
-rake db:automigrate
+rake db:automigrate MERB_ENV=production
 
 === Run Server
 
-merb
+merb -e production
 
 
 === Add authentication to Merblog
 
 1. remove comment on before filter in app/controllers/articles.rb (line 4)
+
 from
 #before :ensure_authenticated, :only => [:new,:edit,:create,:update,:destroy,:delete]
 to
 before :ensure_authenticated, :only => [:new,:edit,:create,:update,:destroy,:delete]
 
 2. Initialize admin user
+
 rake inituser MERB_ENV=production
 
 3. start merb, go to http://localhost:4000 
+
 click 'login' on the left column, login with user: admin  and password: pass
