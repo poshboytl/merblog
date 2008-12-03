@@ -1,10 +1,9 @@
 <% @articles.each do |article| %>
 	<h2><%=h article.title %></h2>
 	<p>
-	 <%=h article.body %>  
+	 <%= link_to h(article.body) , resource(article) %>  
 	</p>
 	<% if login? %>
-		<%= link_to 'Show', resource(article) %> | 
 		<%= link_to 'Edit', resource(article, :edit) %> | 
 		<%= link_to 'Delete', resource(article, :delete), :class => 'delete' %>
 		<hr />
