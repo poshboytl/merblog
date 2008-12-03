@@ -7,11 +7,25 @@
 <h2> Comments: </h2>
 <% if !@article.comments.blank? %>
   <% for comment in @article.comments %>
-    <b><%=h comment.usr %></b>
-	<p><%=h comment.body %></p> <br /> (<%=h comment.created_at.to_s(:db)  %>)
+    <b><%=h comment.name %></b>
+	<p><%=h comment.body %></p> <br /> (<%=h comment.created_at  %>)
   <% end %>
 <% else %>
   
 <% end %>
+
+<%= form_for(@comment, :action =>resource(@article, :comments) ) do %>
+	<h2>name</h2>
+	<p>
+	  <%= text_field :name %>
+	</p>
+	<h2>Message</h2> 
+	<p>
+	  <%= text_area :body %>
+	</p>
+  <p>
+    <%= submit "leave a message" %>
+  </p>
+<% end =%>
 
 <%= link_to 'Back', resource(:articles) %>

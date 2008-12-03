@@ -10,6 +10,7 @@ class Articles < Application
 
   def show(id)
     @article = Article.get(id)
+    @comment = Comment.new
     raise NotFound unless @article
     display @article
   end

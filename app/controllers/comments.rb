@@ -1,57 +1,17 @@
 class Comments < Application
   # provides :xml, :yaml, :js
 
-  def index
-    @comments = Comment.all
-    display @comments
-  end
-
-  def show(id)
-    @comment = Comment.get(id)
-    raise NotFound unless @comment
-    display @comment
-  end
-
-  def new
-    only_provides :html
-    @comment = Comment.new
-    display @comment
-  end
-
-  def edit(id)
-    only_provides :html
-    @comment = Comment.get(id)
-    raise NotFound unless @comment
-    display @comment
-  end
-
   def create(comment)
-    @comment = Comment.new(comment)
-    if @comment.save
-      redirect resource(@comment), :message => {:notice => "Comment was successfully created"}
+    # @comment = Comment.new(comment)
+    debugger
+    @article = Article.get(params[:article_id].to_i)
+    @article.comments.new(comment)
+    if @article.save
+      # redirect resource(@comment), :message => {:notice => "Comment was successfully created"}
+       redirect resource(@article), :message => {:notice => "Mesaage was successfully left"}
     else
       message[:error] = "Comment failed to be created"
-      render :new
-    end
-  end
-
-  def update(id, comment)
-    @comment = Comment.get(id)
-    raise NotFound unless @comment
-    if @comment.update_attributes(comment)
-       redirect resource(@comment)
-    else
-      display @comment, :edit
-    end
-  end
-
-  def destroy(id)
-    @comment = Comment.get(id)
-    raise NotFound unless @comment
-    if @comment.destroy
-      redirect resource(:comments)
-    else
-      raise InternalServerError
+      redirect resource(@article)
     end
   end
 
