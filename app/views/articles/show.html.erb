@@ -1,11 +1,17 @@
-
- 
 <h3><%=h @article.title %></h3>
 <hr />
 <b><%=h @article.slug %></b>
- 
 <p>
   <%=h @article.body %>
 </p>
- 
+<h2> Comments: </h2>
+<% if !@article.comments.blank? %>
+  <% for comment in @article.comments %>
+    <b><%=h comment.usr %></b>
+	<p><%=h comment.body %></p> <br /> (<%=h comment.created_at.to_s(:db)  %>)
+  <% end %>
+<% else %>
+  
+<% end %>
+
 <%= link_to 'Back', resource(:articles) %>

@@ -1,7 +1,7 @@
 class Articles < Application
   # provides :xml, :yaml, :js
   params_accessible :put => [:title, :body, :slug]
-  #before :ensure_authenticated, :only => [:new,:edit,:create,:update,:destroy,:delete]
+  before :ensure_authenticated, :only => [:new,:edit,:create,:update,:destroy,:delete]
   
   def index
     @articles = Article.all

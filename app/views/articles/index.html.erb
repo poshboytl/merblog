@@ -1,15 +1,15 @@
-
 <% @articles.each do |article| %>
-<h2><%=h article.title %></h2>
-<p>
- <%=h article.body %>  
-</p>
-<%= link_to 'Show', resource(article) %> | 
-<%= link_to 'Edit', resource(article, :edit) %> | 
-<%= link_to 'Delete', resource(article, :delete), :class => 'delete' %>
-<hr />
+	<h2><%=h article.title %></h2>
+	<p>
+	 <%=h article.body %>  
+	</p>
+	<% if login? %>
+		<%= link_to 'Show', resource(article) %> | 
+		<%= link_to 'Edit', resource(article, :edit) %> | 
+		<%= link_to 'Delete', resource(article, :delete), :class => 'delete' %>
+		<hr />
+	<% end %>
 <% end %>
-
-
-
-<%= link_to 'New', resource(:articles, :new) %>
+<% if login? %>
+	<%= link_to 'New Article', resource(:articles, :new) %>
+<% end %>
