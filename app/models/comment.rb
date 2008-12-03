@@ -5,7 +5,7 @@ class Comment
 
   property :name, String
   property :created_at, DateTime
-  property :body, Text
+  property :body, Text, :lazy => false
   property :email, String
 
 end
