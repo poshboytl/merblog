@@ -7,25 +7,26 @@
 	</div>
 </div>
 
-<br />
+<hr />
 
 <h4> Comments: </h4>
 <% if !@article.comments.blank? %>
   <% for comment in @article.comments %>
-    <b>[<%=h comment.name %>]</b> said (<%=h comment.created_at.strftime("at %I:%M%p %m/%d/%Y")  %>) <br />
+    <b>[<%=h comment.name %>]</b> said <%=h comment.created_at.strftime("at %I:%M%p %m/%d/%Y")  %> <br />
 	<p><%=h comment.body %></p>
   <% end %>
 <% else %>
   
 <% end %>
 
-<br />
+<hr />
+
 <%= form_for(@comment, :action =>resource(@article, :comments) ) do %>
 
 <div class="post">
-	<h2 class="title"><%= text_field :name %></h2>
+	<h4 class="title">name: <%= text_field :name %></h4>
 	<div class="entry">	
-		<em> body: </em>			
+		<b> body: </b>			
 		<p> <%= text_area :body, :cols => 60, :rows => 20 %></p>
 	</div>
   <p>
