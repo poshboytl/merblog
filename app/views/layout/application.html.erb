@@ -1,43 +1,77 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-    <head>
-        <title>  </title>
-	    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" charset="utf-8" />
-    </head>
-    <body>
-        <div id="wrapper">    
-            <div id="body">            
-                <div id="gMenu">                
-                    <ul>                    
-                       <li><a href="/">Home</a></li>
-                       <li><a href="mailto:eiffelqiu@gmail.com">Contact</a></li> 
-					   <li>
-							<% if !login? %> 
-								<%= link_to 'login', '/login' %>
-							<% else %>
-								<%= link_to 'logout', '/logout' %>
-							<% end  %>
-						</li>                    
-                    </ul>                
-                </div>                         
-                <div id="media">                  
-     					<%= catch_content :for_layout %>                
-                </div>                                                
-                <div id="links">                
-	                <ul>
-	                    <li>
-	                        <a href="http://www.merbivore.com/" title="Merb!">merb</a>
-	                    </li>
-	                    <li>
-	                        <a href="http://www.likenote.com/" title="Music Platform">likenote</a>
-	                    </li>                    
-	                </ul> 
-				<div id="footer">
-					<p>&copy; likenote.com 2008</p>
-				</div>                    
-                </div>     
-            </div>  
-        </div>
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Merblog</title>
+<meta name="keywords" content="merb,blog" />
+<meta name="description" content="merblog" />
+<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header">
+		<div id="menu">
+			<ul>
+			   <li class="current_page_item"><a href="/">Home</a></li>
+			   <li><a href="mailto:eiffelqiu@gmail.com">Contact</a></li>
+			   <li>
+					<% if !login? %> 
+						<%= link_to 'login', '/login' %>
+					<% else %>
+						<%= link_to 'logout', '/logout' %>
+					<% end  %>
+				</li>			
+			</ul>
+		</div>
+		<!-- end #menu -->
+		<div id="search">
+			<form method="get" action="">
+				<fieldset>
+				<input type="text" name="s" id="search-text" size="15" />
+				<input type="submit" id="search-submit" value="Search" />
+				</fieldset>
+			</form>
+		</div>
+		<!-- end #search -->
+	</div>
+	<!-- end #header -->
+</div>
+<!-- end #header-wrapper -->
+<div id="page">
+	<div id="logo">
+		<h1><a href="#">Merblog</a></h1>
+		<p><em>{ created by <a href="http://www.merbivore.com/">Merb</a> &amp; <a href="http://www.likenote.com/">likenote.com</a> }</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="content">
+		<!-- <div class="post">
+			<h2 class="title">Welcome to Optimism</h2>
+			<p class="meta"><em>{ Posted by <a href="#">enks</a> on March 10, 2008 }</em></p>
+			<div class="entry">				
+				<p><strong>Merblog</strong> is a simple blog written with <a href="http://www.merbivore.com/">Merb framework</a> for <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>, released for free under the <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5</a> license. The photos in this design are from <a href="http://www.pdphoto.org/">PDPhoto.org</a>. You're free to use this template for anything as long as you link back to <a href="http://www.freecsstemplates.org/">my site</a>. Enjoy :)</p>
+				<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.</p>
+				<p class="links"><a href="#" class="comments">Comments (64)</a> &nbsp;&nbsp;&nbsp; <a href="#" class="permalink">Full article</a></p>
+			</div>
+		</div> -->
+		<%= catch_content :for_layout %>           
+	</div>
+	<!-- end #content -->
+	<div id="sidebar">
+		<ul>
+			<li>
+				<h2><strong>Merblog</strong> is a simple blog written with <a href="http://www.merbivore.com/">Merb framework</a> </h2>
+				<p></p>
+			</li>
+		</ul>
+	</div>
+	<!-- end #sidebar -->
+	<div style="clear: both;">&nbsp;</div>
+	<div id="footer">
+		<p>Copyright (c) 2008 likenote.com. All rights reserved.</p>
+	</div>
+	<!-- end #footer -->
+</div>
+<!-- end #page -->
+</body>
 </html>
