@@ -9,6 +9,8 @@ class Article
   property :title, String
   property :updated_at, DateTime
   
+  has n, :comments
+  
   # before :valid?, :set_permalink
 
   # our callback needs to accept the context used in the validation,

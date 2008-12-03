@@ -8,4 +8,5 @@ class Comment
   property :body, Text, :lazy => false
   property :email, String
 
+  belongs_to :article
 end
