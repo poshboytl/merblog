@@ -210,6 +210,10 @@ hr {
 
 /* Content */
 
+.red {
+	color: #FF0000;
+}
+
 #content {
 	float: left;
 	width: 510px;

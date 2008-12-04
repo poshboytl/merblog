@@ -5,18 +5,17 @@
 <div class="post">
 	<h2 class="title"><%=h article.title %></h2>
 	<p class="meta">
-		<em>
-			{ Posted on  on <%= article.created_at.strftime("at %I:%M%p %m/%d/%Y") %> 
+		<em> 
 				<% if login? %>
 					<%= link_to 'Edit', resource(article, :edit) %> | 
 					<%= link_to 'Delete', resource(article, :delete), :class => 'delete' %>
 				<% end %>		
-		 	}
-		</em></p>
+		</em>
+	</p>
 	<div class="entry">				
 		<%= link_to h(article.body) , resource(article) %> 
 		<br />
-		<p><%=h article.comments.count %> people left message</p>
+		<p><%= article.created_at.strftime("%m/%d/%Y %I:%M") %>  |  <span class="red"><%=h article.comments.count %></span> comments</p>
 	</div>
 </div>
 <hr />
