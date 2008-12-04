@@ -4,7 +4,12 @@ class Articles < Application
   before :ensure_authenticated, :only => [:new,:edit,:create,:update,:destroy,:delete]
   
   def index
-    @articles = Article.all
+    q = params['q']
+    unless q.blank? then
+      @articles = Article.all(:title.like => "%#{q}%")
+    else 
+      @articles = Article.all
+    end
     display @articles
   end
 
