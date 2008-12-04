@@ -21,6 +21,8 @@
 
 <% end %>
 
+<%= merb_paginate @articles %>
+
 <% if login? %>
 	<%= link_to 'New Article', resource(:articles, :new) %>
 <% end %>

@@ -17,6 +17,9 @@ end
  
 Merb::BootLoader.before_app_loads do
   # This will get executed after dependencies have been loaded but before your app's classes have loaded.
+  # dev_gems = Dir.glob("#{Merb.root}/gems/**/lib/*.rb")
+  # # puts dev_gems
+  # dev_gems.each { |dev_gem| require dev_gem }
 end
  
 Merb::BootLoader.after_app_loads do

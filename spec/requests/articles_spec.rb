@@ -8,6 +8,14 @@ given "a article exists" do
 end
 
 describe "resource(:articles)" do
+  
+  describe "login test" do
+    it "should login" do
+      response = request url('/login'), :method => "POST", :params => { :login => 'admin', :password => 'pass' }
+      response.should be_successful
+    end
+  end  
+  
   describe "GET" do
     
     before(:each) do
@@ -37,6 +45,7 @@ describe "resource(:articles)" do
   describe "a successful POST" do   
     before(:each) do
       Article.all.destroy!
+      response = request url('/login'), :method => "POST", :params => { :login => 'admin', :password => 'pass' }
       @response = request(resource(:articles), :method => "POST", 
         :params => { :article => { :id => nil }})
     end

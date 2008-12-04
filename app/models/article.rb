@@ -1,5 +1,6 @@
 class Article
   include DataMapper::Resource
+  include MerbPaginate::Finders::Datamapper
   
   property :id, Serial
 
