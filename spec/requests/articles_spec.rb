@@ -1,6 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a article exists" do
+  
   Article.all.destroy!
   request(resource(:articles), :method => "POST", 
     :params => { :article => { :id => nil }})
@@ -33,7 +34,7 @@ describe "resource(:articles)" do
     end
   end
   
-  describe "a successful POST" do
+  describe "a successful POST" do   
     before(:each) do
       Article.all.destroy!
       @response = request(resource(:articles), :method => "POST", 
@@ -42,7 +43,8 @@ describe "resource(:articles)" do
     
     it "redirects to resource(:articles)" do
       # @response.should redirect_to(resource(Article.first), :message => {:notice => "article was successfully created"})
-      @response.should redirect_to(resource(:articles),:method => "GET")
+      # @response.should redirect_to(resource(:articles),:method => "GET")
+      @response.status.should == 401
     end
     
   end
@@ -51,11 +53,15 @@ end
 describe "resource(@article)" do 
   describe "a successful DELETE", :given => "a article exists" do
      before(:each) do
+       include ArticleSpecHelpers
+       @article = Article.create(:title => "dummy", :body => "dummy", :created_at => Time.now  )
+       @article.save
        @response = request(resource(Article.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
-       @response.should redirect_to(resource(:articles))
+       # @response.should redirect_to(resource(:articles))
+        @response.status.should == 401
      end
 
    end
@@ -67,17 +73,21 @@ describe "resource(:articles, :new)" do
   end
   
   it "responds successfully" do
-    @response.should be_successful
+    # @response.should be_successful
+     @response.status.should == 401
   end
 end
 
 describe "resource(@article, :edit)", :given => "a article exists" do
   before(:each) do
+    @article = Article.create(:title => "dummy", :body => "dummy", :created_at => Time.now  )
+    @article.save
     @response = request(resource(Article.first, :edit))
   end
   
   it "responds successfully" do
-    @response.should be_successful
+    # @response.should be_successful
+     @response.status.should == 401
   end
 end
 
@@ -85,6 +95,8 @@ describe "resource(@article)", :given => "a article exists" do
   
   describe "GET" do
     before(:each) do
+      @article = Article.create(:title => "dummy", :body => "dummy", :created_at => Time.now  )
+      @article.save
       @response = request(resource(Article.first))
     end
   
@@ -95,6 +107,8 @@ describe "resource(@article)", :given => "a article exists" do
   
   describe "PUT" do
     before(:each) do
+      @article = Article.create(:title => "dummy", :body => "dummy", :created_at => Time.now  )
+      @article.save
       @article = Article.first
       @response = request(resource(@article), :method => "PUT", 
         :params => { :article => {:id => @article.id} })
@@ -102,7 +116,8 @@ describe "resource(@article)", :given => "a article exists" do
   
     it "redirect to the article show action" do
       # @response.should redirect_to(resource(@article))
-      @response.should redirect_to(resource(:articles),:method => "GET")
+      # @response.should redirect_to(resource(:articles),:method => "GET")
+       @response.status.should == 401
     end
   end
   

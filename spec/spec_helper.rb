@@ -18,3 +18,10 @@ Spec::Runner.configure do |config|
   config.include(Merb::Test::RouteHelper)
   config.include(Merb::Test::ControllerHelper)
 end
+
+module ArticleSpecHelpers
+  # helpers defined here available to all views.  
+  def login?
+    true
+  end
+end
