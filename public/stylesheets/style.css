@@ -33,9 +33,7 @@ ul, ol { }
 
 blockquote { }
 
-a { color: #D87EB4; }
-
-a:hover { text-decoration: none; }
+a { color: #D87EB4; text-decoration: none; }
 
 a img {
 	border: none;
@@ -51,7 +49,9 @@ img.right {
 	margin: 7px 0 0 30px;
 }
 
-hr { display: none; }
+hr { 
+	border:none; border-top:solid 1px #cccccc;
+}
 
 .list1 {
 }
@@ -364,5 +364,5 @@ hr { display: none; }
 }
 
 input:focus, textarea:focus{
-background-color: lightyellow;
+	background-color: lightyellow;
 }

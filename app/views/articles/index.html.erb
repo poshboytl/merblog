@@ -1,3 +1,5 @@
+<%= merb_paginate @articles %>
+<hr />
 <% @articles.each do |article| %>
 
 <div class="post">
@@ -8,7 +10,6 @@
 				<% if login? %>
 					<%= link_to 'Edit', resource(article, :edit) %> | 
 					<%= link_to 'Delete', resource(article, :delete), :class => 'delete' %>
-					<hr />
 				<% end %>		
 		 	}
 		</em></p>
@@ -18,11 +19,17 @@
 		<p><%=h article.comments.count %> people left message</p>
 	</div>
 </div>
-
+<hr />
 <% end %>
 
 <%= merb_paginate @articles %>
 
+<div align="center">
+
 <% if login? %>
 	<%= link_to 'New Article', resource(:articles, :new) %>
 <% end %>
+
+</div>
+
+<hr />
