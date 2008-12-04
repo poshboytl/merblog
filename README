@@ -14,9 +14,8 @@ rake db:automigrate
  
 2. Initialize admin user 
 
-rake inituser  
+rake inituser MERB_ENV=development 
 
-# default in development environment
 # if you want to run merblog in production mode, run like this:
 # rake inituser MERB_ENV=production
 

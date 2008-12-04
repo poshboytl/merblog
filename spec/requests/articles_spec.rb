@@ -10,10 +10,13 @@ end
 describe "resource(:articles)" do
   
   describe "login test" do
+    
     it "should login" do
       response = request url('/login'), :method => "POST", :params => { :login => 'admin', :password => 'pass' }
       response.should be_successful
     end
+
+        
   end  
   
   describe "GET" do
@@ -51,7 +54,6 @@ describe "resource(:articles)" do
     end
     
     it "redirects to resource(:articles)" do
-      # @response.should redirect_to(resource(Article.first), :message => {:notice => "article was successfully created"})
       # @response.should redirect_to(resource(:articles),:method => "GET")
       @response.status.should == 401
     end
