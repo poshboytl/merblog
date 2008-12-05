@@ -4,7 +4,13 @@
 	<h3 class="title"><%=h @article.title %></h3>
 	<div class="entry">				
 		<p> <%=h @article.body %></p>
-	</div>
+		<p>
+		<% if login? %>
+			<%= link_to 'Edit', resource(@article, :edit) %> | 
+			<%= link_to 'Delete', resource(@article, :delete), :class => 'delete' %>
+		<% end %>
+		</p>		
+	</div>		
 </div>
 
 <hr />

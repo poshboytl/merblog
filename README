@@ -2,6 +2,10 @@
 
 Merblog is a simple blog written in Merb
 
+install demo video:
+
+http://www.likenote.com/merblog.mov
+
 == Getting Started
 
 Create database, default using SQLite3
@@ -16,6 +20,7 @@ rake db:automigrate
 
 rake inituser
 
+# default in development environment
 # if you want to run merblog in production mode, run like this:
 # rake inituser MERB_ENV=production
 
