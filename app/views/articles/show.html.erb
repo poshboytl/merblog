@@ -3,7 +3,7 @@
 <div class="post">
 	<h3 class="title"><%=h @article.title %></h3>
 	<div class="entry">				
-		<p> <%=h @article.body %></p>
+		<p><%=h @article.body %></p>
 		<p>
 		<% if login? %>
 			<%= link_to 'Edit', resource(@article, :edit) %> | 

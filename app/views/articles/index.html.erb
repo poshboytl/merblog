@@ -12,8 +12,9 @@
 				<% end %>		
 		</em>
 	</p>
-	<div class="entry">				
-		<%= link_to h(article.body) , resource(article) %> 
+	<div class="entry">
+		<%= h(article.body) %> 				
+		<p><%= link_to 'detail' , resource(article) %></p>
 		<br />
 		<p><%= article.created_at.strftime("%m/%d/%Y %I:%M") %>  |  <span class="red"><%=h article.comments.count %></span> comments</p>
 	</div>

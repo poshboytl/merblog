@@ -6,9 +6,9 @@ class Articles < Application
   def index
     q = params['q']
     unless q.blank? then
-      @articles = Article.paginate :page => params[:page], :per_page => 5, :title.like => "%#{q}%"
+      @articles = Article.paginate :page => params[:page], :per_page => 5, :title.like => "%#{q}%", :order => [:created_at.desc] 
     else 
-      @articles = Article.paginate :page => params[:page], :per_page => 5
+      @articles = Article.paginate :page => params[:page], :per_page => 5, :order => [:created_at.desc] 
     end
     display @articles
   end
