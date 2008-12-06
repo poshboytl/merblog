@@ -16,13 +16,8 @@
 <hr />
 
 <h4> Comments: </h4>
-<% if !@article.comments.blank? %>
-  <% for comment in @article.comments %>
-    <b>[<%=h comment.name %>]</b> said <%=h comment.created_at.strftime("at %I:%M%p %m/%d/%Y")  %> <br />
-	<p><%=h comment.body %></p>
-  <% end %>
-<% else %>
-  
+<% unless @article.comments.blank? %>
+  <%= partial :comment, :with => @article.comments %> 
 <% end %>
 
 <hr />

@@ -1,0 +1,19 @@
+<div class="post">
+	<h2 class="title"><%=h article.title %></h2>
+	<p class="meta">
+		<em> 
+				<% if login? %>
+					<%= link_to 'Edit', resource(article, :edit) %> | 
+					<%= link_to 'Delete', resource(article, :delete), :class => 'delete' %>
+				<% end %>		
+		</em>
+	</p>
+	<div class="entry">
+		<%= h(article.body) %> 				
+		<p><%= link_to 'detail' , resource(article) %></p>
+		<br />
+		<p><%= article.created_at.strftime("%m/%d/%Y %I:%M") %>  |  <span class="red"><%=h article.comments.count %></span> comments</p>
+	</div>
+</div>
+
+<hr />
